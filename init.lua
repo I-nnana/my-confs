@@ -1,1 +1,0 @@
-/home/kwata/.config/nvim/init.lua
