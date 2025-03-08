@@ -1,0 +1,173 @@
+[
+    {
+        "id": "1740326360325",
+        "schema": 1,
+        "enabled": true,
+        "fallthrough": true,
+        "name": "CISO",
+        "trigger": "1",
+        "contexttype": "1",
+        "contextvalue": [],
+        "match": "1",
+        "conditions": [
+            {
+                "target": "3",
+                "mode": "2",
+                "value": "CISO",
+                "casemode": "2"
+            }
+        ],
+        "actions": [
+            {
+                "type": "9",
+                "value": "CISO"
+            }
+        ],
+        "contextvaluetext": []
+    },
+    {
+        "id": "1740326432255",
+        "schema": 1,
+        "enabled": true,
+        "fallthrough": true,
+        "name": "Security",
+        "trigger": "1",
+        "contexttype": "1",
+        "contextvalue": [],
+        "match": "2",
+        "conditions": [
+            {
+                "target": "3",
+                "mode": "2",
+                "value": "CVE",
+                "casemode": "2"
+            },
+            {
+                "target": "3",
+                "mode": "2",
+                "value": "Debian",
+                "casemode": "2"
+            },
+            {
+                "target": "3",
+                "mode": "2",
+                "value": "Mac",
+                "casemode": "2"
+            }
+        ],
+        "actions": [
+            {
+                "type": "9",
+                "value": "Security"
+            }
+        ],
+        "contextvaluetext": []
+    },
+    {
+        "id": "1740326720847",
+        "schema": 1,
+        "enabled": true,
+        "fallthrough": true,
+        "name": "Deving",
+        "trigger": "1",
+        "contexttype": "1",
+        "contextvalue": [],
+        "match": "2",
+        "conditions": [
+            {
+                "target": "3",
+                "mode": "10",
+                "value": "javascript,js",
+                "casemode": "2",
+                "words": "javascript,js"
+            },
+            {
+                "target": "3",
+                "mode": "10",
+                "value": "typescript,ts",
+                "casemode": "2",
+                "words": "typescript,ts"
+            },
+            {
+                "target": "3",
+                "mode": "10",
+                "value": "docker,container",
+                "casemode": "2",
+                "words": "docker,container"
+            },
+            {
+                "target": "3",
+                "mode": "10",
+                "value": "vuejs,vue",
+                "casemode": "2",
+                "words": "vuejs,vue"
+            },
+            {
+                "target": "3",
+                "mode": "10",
+                "value": "terraform,opentofu",
+                "casemode": "2",
+                "words": "terraform,opentofu"
+            },
+            {
+                "target": "3",
+                "mode": "10",
+                "value": "devops,devsecops",
+                "casemode": "2",
+                "words": "devops,devsecops"
+            },
+            {
+                "target": "3",
+                "mode": "10",
+                "value": "bun",
+                "casemode": "2",
+                "words": "bun"
+            },
+            {
+                "target": "3",
+                "mode": "2",
+                "value": "sql",
+                "casemode": "2"
+            },
+            {
+                "target": "3",
+                "mode": "2",
+                "value": "secure",
+                "casemode": "2"
+            }
+        ],
+        "actions": [
+            {
+                "type": "9",
+                "value": "Deving"
+            }
+        ],
+        "contextvaluetext": []
+    },
+    {
+        "id": "1740326773427",
+        "schema": 1,
+        "enabled": true,
+        "fallthrough": true,
+        "name": "Ban",
+        "trigger": "1",
+        "contexttype": "1",
+        "contextvalue": [],
+        "match": "1",
+        "conditions": [
+            {
+                "target": "1",
+                "mode": "2",
+                "value": "beginner,beginners,101",
+                "casemode": "2"
+            }
+        ],
+        "actions": [
+            {
+                "type": "5",
+                "value": ""
+            }
+        ],
+        "contextvaluetext": []
+    }
+]
