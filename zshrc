@@ -119,6 +119,8 @@ alias dockerdown="sudo systemctl stop docker.socket && sudo systemctl stop docke
 alias logout="sudo pkill -u $USER"
 
 alias list-systemd-unit-files="systemctl list-unit-files"
+
+alias gh-push="eval "$(ssh-agent -s)" ssh-add ~/.ssh/github-qlipoth "
 # BACKUP SCRIPT ---------------------------------------------------
 
 # alias backup='~/.backup.sh'
