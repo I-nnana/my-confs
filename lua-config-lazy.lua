@@ -115,7 +115,6 @@ require("lazy").setup({
                 -- Set menu
                 dashboard.section.buttons.val = {
                     dashboard.button( "e", "  > New file" , ":ene <BAR> startinsert <CR>"),
-                    dashboard.button( "f", "  > Find file", ":cd $HOME/Workspace | Telescope find_files<CR>"),
                     dashboard.button( "r", "  > Recent"   , ":Telescope oldfiles<CR>"),
                     dashboard.button( "g", "󱉟  > Find word"   , ":Telescope live_grep<CR>"),
                     dashboard.button( "s", "󰁯  > Old session"   , ":Autosession search<CR>"),
@@ -139,6 +138,8 @@ require("lazy").setup({
                 -- log_level = 'debug',
             }
         },
+
+        { { 'akinsho/toggleterm.nvim', version = "*", config = true } },
 
         -- automatically check for plugin updates
         checker = { enabled = true },
@@ -200,3 +201,6 @@ vim.keymap.set("n", "<leader>t", '<cmd>Neotree toggle<CR>')
 vim.keymap.set("n", "<leader>s", '<cmd>SessionSave<CR>')
 vim.keymap.set("n", "<leader>?", '<cmd>Autosession search<CR>')
 vim.keymap.set("n", "<leader>d", '<cmd>Autosession delete<CR>')
+
+-- terminal
+vim.keymap.set("n", "<leader>p", '<cmd>:ToggleTerm size=80 dir=~/Desktop direction=vertical<CR>')
