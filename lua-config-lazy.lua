@@ -97,19 +97,21 @@ require("lazy").setup({
 
                 -- Set header
                 dashboard.section.header.val = {
-                        [[ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣶⣶⠿⠿⠿⣶⣦⣀⠀⠀⠀    ]],
-                        [[ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⡾⠛⠉⠀⠀⠀⠀⠀⠀⠉⠻⣧⡀⠀    ]],
-                        [[ ⢠⣄⣀⣀⣀⣀⣀⣀⣀⣴⠋⠀⠀⠀⠀⠀⣴⣆⠀⠀⠀⠀⠘⣿⡀    ]],
-                        [[ ⠀⠙⠻⣿⣟⠛⠛⠛⠋⠁⠀⠀⠀⠀⠀⠘⠿⠋⠀⠀⠀⠀⠀⣿⡇    ]],
-                        [[ ⠀⠀⠀⠀⠙⢷⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣾⡇    ]],
-                        [[ ⠀⠀⠀⠀⠀⠀⠘⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣽⠃    ]],
-                        [[ ⠀⠀⠀⠀⠀⠀⢰⡿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⠀    ]],
-                        [[ ⠀⠀⠀⠀⠀⠀⣾⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⡿⠀    ]],
-                        [[ ⠀⠀⠀⠀⠀⢸⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⠃⠀    ]],
-                        [[ ⠀⠀⠀⠀⢀⡿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⡟⠀⠀    ]],
-                        [[ ⠀⠀⠀⠀⣾⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣼⠇⠀⠀    ]],
-                        [[                              ]],
-                        [[          你好世界            ]],
+                        [[                                      ]],
+                        [[  Du coeur de la sombre terre         ]],
+                        [[  à l'orbite de saturne               ]],
+                        [[                                      ]],
+                        [[  J'ai percé tous les mystères        ]],
+                        [[  du Temps et de la Nature;           ]],
+                        [[                                      ]],
+                        [[  J'ai dénoué par l'effort            ]],
+                        [[  de mon esprit tous les noeuds       ]],
+                        [[                                      ]],
+                        [[  Tous, sur terre et dans les cieux   ]],
+                        [[  sauf un, celui de la Mort!          ]],
+                        [[                                      ]],
+                        [[                       Omar Khayyam   ]],
+                        [[                                      ]],
                 }
 
                 -- Set menu
@@ -139,8 +141,39 @@ require("lazy").setup({
             }
         },
 
+        -- toggle terminal
         { { 'akinsho/toggleterm.nvim', version = "*", config = true } },
 
+        -- 
+        { "neovim/nvim-lspconfig", 
+          lazy = false, 
+          dependencies = {
+            -- main one
+            { "ms-jpq/coq_nvim", branch = "coq" },
+
+            -- 9000+ Snippets
+            { "ms-jpq/coq.artifacts", branch = "artifacts" },
+
+            -- lua & third party sources -- See https://github.com/ms-jpq/coq.thirdparty
+            -- Need to **configure separately**
+            { 'ms-jpq/coq.thirdparty', branch = "3p" }
+            -- - shell repl
+            -- - nvim lua api
+            -- - scientific calculator
+            -- - comment banner
+            -- - etc
+          },
+          init = function()
+            vim.g.coq_settings = {
+                auto_start = true, -- if you want to start COQ at startup
+                -- Your COQ settings here
+            }
+          end,
+          config = function()
+            -- Your LSP settings here
+          end,
+        },
+        
         -- automatically check for plugin updates
         checker = { enabled = true },
     }
@@ -203,4 +236,10 @@ vim.keymap.set("n", "<leader>?", '<cmd>Autosession search<CR>')
 vim.keymap.set("n", "<leader>d", '<cmd>Autosession delete<CR>')
 
 -- terminal
-vim.keymap.set("n", "<leader>p", '<cmd>:ToggleTerm size=80 dir=~/Desktop direction=vertical<CR>')
+vim.keymap.set("n", "<leader>p", '<cmd>:ToggleTerm size=80 dir=~/ direction=vertical<CR>')
+
+-- lsps --------------------------------------------------------------------
+vim.lsp.enable('dockerls')
+vim.lsp.enable('docker_compose_language_service')
+vim.lsp.enable('vue_ls')
+vim.lsp.enable('css_variables')
